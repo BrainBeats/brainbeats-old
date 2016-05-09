@@ -1,4 +1,4 @@
-package pi.insa.com.brainbeats;
+package com.insa.pi.brainbeats;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
