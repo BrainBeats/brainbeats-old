@@ -8,12 +8,11 @@ import android.widget.TextView;
 
 import com.insa.pi.brainbeats.SongFragment.OnListFragmentInteractionListener;
 import com.insa.pi.brainbeats.domain.Song;
-import com.insa.pi.brainbeats.dummy.DummyContent.DummyItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Song} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */

@@ -1,8 +1,10 @@
 package com.insa.pi.brainbeats;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +27,10 @@ public class StartScreen extends AppCompatActivity implements SongFragment.OnLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_screen);
-        database = new InMemoryDB();
+        if (database == null) {
+            database = new InMemoryDB();
+            database.addSong(new Song("ADasdasd", "test", null));
+        }
     }
 
     @Override
@@ -63,6 +68,7 @@ public class StartScreen extends AppCompatActivity implements SongFragment.OnLis
     }
 
     public void startMaMusique(View view) {
+        final Activity context = this;
         setSelected(R.id.ma_musique);
         setUnSelected(R.id.ecoute);
         setUnSelected(R.id.aprentissage);
@@ -72,7 +78,10 @@ public class StartScreen extends AppCompatActivity implements SongFragment.OnLis
         addNewSong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("JJJEEEEE");
+                Intent intent = new Intent(context, NewSong.class);
+                intent.putExtra("DB", database);
+                startActivity(intent);
+                //INSTEAD OF INJECTING DATABASE AS A DEPENDENCY, THE ACTIVITY SHOULD RETURN NEW SONG
             }
         });
         FrameLayout root = (FrameLayout)findViewById(R.id.button_area);
