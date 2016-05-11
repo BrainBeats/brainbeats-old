@@ -39,4 +39,17 @@
             android:textSize="@dimen/menu_button"
             android:onClick="startAprentissage"/>
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/fragment_container"
+        android:layout_gravity="center">
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/button_area"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="center_horizontal|bottom"></FrameLayout>
 </FrameLayout>
