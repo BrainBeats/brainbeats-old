@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 
 import com.insa.pi.brainbeats.db.InMemoryDB;
@@ -59,7 +60,9 @@ public class StartScreen extends AppCompatActivity implements SongFragment.OnLis
 
     @Override
     public void onListFragmentInteraction(Song song) {
-
+        Intent intent = new Intent(this, PlayScreen.class);
+        intent.putExtra("SONG", song);
+        startActivity(intent);
     }
 
     private void deployFragment(Fragment fragment) {

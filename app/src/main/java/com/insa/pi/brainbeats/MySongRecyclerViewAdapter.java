@@ -36,12 +36,12 @@ public class MySongRecyclerViewAdapter extends RecyclerView.Adapter<MySongRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.song = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
         holder.mContentView.setText(mValues.get(position).displayName);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (null != mListener) {
                     // Notify the active callbacks interface (the activity, if the
                     // fragment is attached to one) that an item has been selected.
@@ -58,14 +58,12 @@ public class MySongRecyclerViewAdapter extends RecyclerView.Adapter<MySongRecycl
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
         public final TextView mContentView;
         public Song song;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 
