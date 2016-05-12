@@ -5,4 +5,5 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <color name="buttons">#e0f47521</color>
 </resources>
