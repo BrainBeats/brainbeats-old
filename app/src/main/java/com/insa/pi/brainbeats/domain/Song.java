@@ -1,5 +1,7 @@
 package com.insa.pi.brainbeats.domain;
 
+import android.net.Uri;
+
 import java.io.Serializable;
 
 public class Song implements Serializable{
@@ -9,6 +11,9 @@ public class Song implements Serializable{
     * Location of the song in the mobile.
     * */
     public String location;
+
+    public Song() {
+    }
 
     public Song(String id, String displayName, String location) {
         this.id = id;

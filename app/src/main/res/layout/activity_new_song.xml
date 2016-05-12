@@ -10,13 +10,14 @@
     tools:context=".NewSong"
     android:orientation="vertical">
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:hint="Nouveau chanson"
-        android:id="@+id/new_song"
-        android:layout_gravity="center_horizontal" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/choose_music_message"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"/>
 
     <Button
         android:layout_width="wrap_content"
