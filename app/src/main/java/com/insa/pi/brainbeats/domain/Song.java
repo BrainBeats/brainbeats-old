@@ -1,6 +1,8 @@
 package com.insa.pi.brainbeats.domain;
 
-public class Song {
+import java.io.Serializable;
+
+public class Song implements Serializable{
     public String id;
     public String displayName;
     /*

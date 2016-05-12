@@ -22,6 +22,8 @@ import com.insa.pi.brainbeats.domain.Song;
 
 public class StartScreen extends AppCompatActivity implements SongFragment.OnListFragmentInteractionListener {
     private InMemoryDB database;
+    static final int CHOOSE_NEW_SONG_REQUEST = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,13 +81,21 @@ public class StartScreen extends AppCompatActivity implements SongFragment.OnLis
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, NewSong.class);
-                intent.putExtra("DB", database);
-                startActivity(intent);
-                //INSTEAD OF INJECTING DATABASE AS A DEPENDENCY, THE ACTIVITY SHOULD RETURN NEW SONG
+                startActivityForResult(intent, CHOOSE_NEW_SONG_REQUEST);
             }
         });
         FrameLayout root = (FrameLayout)findViewById(R.id.button_area);
         root.addView(addNewSong);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CHOOSE_NEW_SONG_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                Song song = (Song)data.getExtras().get("SONG");
+                database.addSong(song);
+            }
+        }
     }
 
     public void startEcoute(View view) {

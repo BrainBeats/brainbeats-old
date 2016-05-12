@@ -13,10 +13,6 @@ import android.view.ViewGroup;
 import com.insa.pi.brainbeats.db.InMemoryDB;
 import com.insa.pi.brainbeats.domain.Song;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 
 /**
  * A fragment representing a list of Items.
